@@ -37,12 +37,6 @@ variable "athene2_database_password_readonly" {
   description = "Readonly password for athene2 database connection"
 }
 
-variable "gcloud_ingress" {
-  type        = bool
-  description = "kpi ingress for minikube is required"
-  default     = true
-}
-
 #
 # application variables
 #
