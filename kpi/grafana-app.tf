@@ -46,14 +46,13 @@ resource "kubernetes_deployment" "grafana_deployment" {
 
       spec {
         dns_policy = "ClusterFirstWithHostNet"
-        # Google DNS won't work in minikube
-        #dns_config {
-        #  nameservers = ["8.8.8.8"]
-        #  option {
-        #    name  = "ndots"
-        #    value = 1
-        #  }
-        #}
+        dns_config {
+          nameservers = ["8.8.8.8"]
+          option {
+            name  = "ndots"
+            value = 1
+          }
+        }
 
         container {
           image = var.grafana_image
