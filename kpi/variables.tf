@@ -95,3 +95,8 @@ variable "aggregator_image" {
   description = "image name of aggregator"
   default     = "eu.gcr.io/serlo-shared/kpi-aggregator:latest"
 }
+
+variable "mfnf_importer_image" {
+  description = "image name of mfnf-importer"
+  default     = "eu.gcr.io/serlo-shared/kpi-mfnf-importer:latest"
+}
