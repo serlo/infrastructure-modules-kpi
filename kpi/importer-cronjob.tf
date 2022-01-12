@@ -30,6 +30,10 @@ resource "kubernetes_deployment" "mysql-importer-cronjob" {
       }
 
       spec {
+        node_selector = {
+          "cloud.google.com/gke-nodepool" = var.node_pool
+        }
+
         container {
           image             = var.mysql_importer_image
           name              = "mysql-importer-container"

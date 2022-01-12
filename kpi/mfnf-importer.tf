@@ -32,6 +32,10 @@ resource "kubernetes_cron_job" "mfnf-importer" {
             }
           }
           spec {
+            node_selector = {
+              "cloud.google.com/gke-nodepool" = var.node_pool
+            }
+
             container {
               image = var.mfnf_importer_image
               name  = "mfnf-importer"

@@ -26,6 +26,10 @@ resource "kubernetes_deployment" "aggregator-cronjob" {
       }
 
       spec {
+        node_selector = {
+          "cloud.google.com/gke-nodepool" = var.node_pool
+        }
+
         container {
           image = var.aggregator_image
           name  = "aggregator"

@@ -6,6 +6,11 @@ variable "namespace" {
   description = "Namespace for this module."
 }
 
+variable "node_pool" {
+  type        = string
+  description = "Node pool to use"
+}
+
 variable "domain" {
   description = "domain for kpi ingress"
 }

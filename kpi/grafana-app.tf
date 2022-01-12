@@ -45,6 +45,10 @@ resource "kubernetes_deployment" "grafana_deployment" {
       }
 
       spec {
+        node_selector = {
+          "cloud.google.com/gke-nodepool" = var.node_pool
+        }
+
         dns_policy = "ClusterFirstWithHostNet"
 
         container {
