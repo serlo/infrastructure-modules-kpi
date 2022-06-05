@@ -1,18 +1,3 @@
-data "template_file" "datasources_template" {
-  template = file("${path.module}/datasources.yaml.tpl")
-
-  vars = {
-    athene2_database_host     = var.athene2_database_host
-    athene2_database_username = var.athene2_database_username_readonly
-    athene2_database_password = var.athene2_database_password_readonly
-    kpi_database_host         = var.kpi_database_host
-    kpi_database_username     = var.kpi_database_username_readonly
-    kpi_database_password     = var.kpi_database_password_readonly
-    kpi_database_name         = var.kpi_database_name
-  }
-}
-
-
 resource "kubernetes_deployment" "grafana_deployment" {
   metadata {
     name      = "grafana-app"
@@ -58,11 +43,11 @@ resource "kubernetes_deployment" "grafana_deployment" {
           image_pull_policy = var.image_pull_policy
 
           resources {
-            limits {
+            limits = {
               cpu    = "100m"
               memory = "256M"
             }
-            requests {
+            requests = {
               cpu    = "100m"
               memory = "128M"
             }

@@ -63,7 +63,7 @@ resource "kubernetes_deployment" "aggregator-cronjob" {
           }
 
           resources {
-            limits {
+            limits = {
               cpu    = "100m"
               memory = "50M"
             }
