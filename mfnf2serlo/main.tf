@@ -61,8 +61,8 @@ resource "kubernetes_deployment" "mfnf2serlo" {
 
           resources {
             limits = {
-              cpu    = "250m"
-              memory = "250M"
+              cpu    = "950m"
+              memory = "150M"
             }
           }
         }
