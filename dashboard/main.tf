@@ -1,5 +1,5 @@
 locals {
-  name = "dashboard"
+  name      = "dashboard"
   namespace = "api"
 }
 
@@ -98,7 +98,7 @@ resource "kubernetes_deployment" "dashboard" {
           resources {
             limits = {
               cpu    = "100m"
-              memory = "256M"
+              memory = "300M"
             }
           }
         }
@@ -110,7 +110,7 @@ resource "kubernetes_deployment" "dashboard" {
 
 resource "kubernetes_service" "dashboard_service" {
   metadata {
-    name      = "dashboard-service"
+    name      = "dashboard"
     namespace = local.namespace
   }
 
