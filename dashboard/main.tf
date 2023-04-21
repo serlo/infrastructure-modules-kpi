@@ -95,9 +95,14 @@ resource "kubernetes_deployment" "dashboard" {
             name  = "POSTGRES_USER"
             value = "serlo_readonly"
           }
+          port {
+            name           = "http"
+            container_port = 8050
+            protocol       = "TCP"
+          }
           resources {
             limits = {
-              cpu    = "100m"
+              cpu    = "200m"
               memory = "300M"
             }
           }
@@ -106,7 +111,6 @@ resource "kubernetes_deployment" "dashboard" {
     }
   }
 }
-
 
 resource "kubernetes_service" "dashboard_service" {
   metadata {
