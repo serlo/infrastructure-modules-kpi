@@ -1,4 +1,4 @@
-resource "kubernetes_cron_job" "mfnf-importer" {
+resource "kubernetes_cron_job_v1" "mfnf-importer" {
   count = 1
 
   metadata {
